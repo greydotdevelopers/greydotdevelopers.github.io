@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Forgot the Formula?</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./css/jquery.mobile-1.4.3.min.css" /> 
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/jquery.mobile-1.4.3.min.js"></script>	
+	<!--<script src=".\jquery.mobile-1.4.3.min.js"></script>-->
+    <script src="./js/EquationsLibrary.js"></script>
+	<script src="./js/pScript 3.4.4.js"></script>
+
+
+	<script>
+	$( document ).on( "pageinit", "#p-NewtonianMechanics", function() {
+		$( document ).on( "swiperight", "#p-NewtonianMechanics", function( e ) {
+					$( "#m-NewtonianMechanics" ).panel( "open" );
+		});
+	});
+	
+	$( document ).on( "pageinit", "#p-EM", function() {
+		$( document ).on( "swiperight", "#p-EM", function( e ) {
+					$( "#m-EM" ).panel( "open" );
+		});
+	});
+	$( document ).on( "pageinit", "#p-FluidThermo", function() {
+		$( document ).on( "swiperight", "#p-FluidThermo", function( e ) {
+					$( "#m-FluidThermo" ).panel( "open" );
+		});
+	});	
+	$( document ).on( "pageinit", "#c-AtomicStructure", function() {
+		$( document ).on( "swiperight", "#c-AtomicStructure", function( e ) {
+					$( "#m-AtomicStructure" ).panel( "open" );
+		});
+	});	
+		$( document ).on( "pageinit", "#eqSupported", function() {
+		$( document ).on( "swiperight", "#eqSupported", function( e ) {
+					$( "#m-EquationsSupported" ).panel( "open" );
+		});
+	});	
+	$(window).bind("load", function() {
+		addOptions();
+	});
+
+	</script>
+</head>
+
+<body>
+<!--PHYSICS -->
+	<!--PHYSICS - NEWTONIAN MECHANICS-->
+	<div data-role="page" id="p-NewtonianMechanics"  data-url="p-NewtonianMechanics">
+	<!-- PANEL MENU -->
+	<div data-role="panel" id="m-NewtonianMechanics" data-position="left" data-display="reveal">
+		<!-- panel content goes here -->
+		<p style="font-size:15pt"><b> MENU </b></p>
+		<p><b>Physics</b></</p>
+			<input type="button" value="Newtonian Mechanics" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-NewtonianMechanics'">	 	
+			<input type="button" value="E & M" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-EM'">
+			<input type="button" value="Fluid Mech. & Thermo." style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-FluidThermo'">
+		<p><b>Chemistry</b></p>
+			<p>Coming Soon!</p>
+			<input type="button" value="Atomic Structure" style="font-size:10pt;background-color: #C7F464; opacity:0.65" onClick="location.href='#c-AtomicStructure'">
+		<p><b>Other</b></p>
+			<input type="button" value="Equations Supported" style="font-size:10pt;background-color: #FF6B6B; opacity:0.4" onClick="location.href='#eqSupported'">
+	</div>
+	
+	<!-- Header -->
+	<div data-role="header" style="font-family: 'Courier New', Courier, monospace;font-size:17pt;color: white;background-color: #556270">
+		<h1>Newtonian Mech.</h1>
+	</div>		
+
+		<div data-role="content">          					 
+		<!--<input type="button" value="Menu" style="font-size:10pt;background-color: #3AE2E2;opacity:0.4;" onClick= "openPanel('#m-NewtonianMechanics');">  -->
+			<p>  </p> <!-- space -->
+			<p>  </p> <!-- space -->			
+			<form method="POST">
+			<!-- ASKED FOR -->
+					<label for="select-choice-a" class="select"><b>Asked for:</b></label>
+					<select name="select-choice-a" id="findThis" data-native-menu="false">					
+						<option value="default">Select One</option>
+					</select>
+			<!-- GIVEN -->	
+				<label for="select-choice-a" class="select"><b>Given:</b></label>
+				<p>Select values to add. Tap on an entered value to delete.</p>
+				<div id="values">
+					<!--Dynamic text boxes for given values go here-->			
+				</div>				
+					<select name="select-choice-a" id="givenThis" data-native-menu="false" style="float:left;">
+						<option value="default">Select One</option>
+						<option value="hi">This Should be Overwritten</option>
+					</select>
+					
+					<input type="number" id="inputText">
+					<input type="button" value="Add Value" style="background-color: #4ECDC4; opacity: 0.65; " onClick="addInput('values');" >
+			<input type="button" value="Submit" style="font-size:10pt;background-color: #C7F464; opacity: 0.65; color: black" onClick="onSubmit('NewtonianMechanics')">					
+			<input type="button" value="Reset" style="background-color: #FF6B6B; opacity: 0.65"  onClick="window.location.reload()">
+			</form> 
+			<p> Swipe right to open menu.</p>
+		</div>
+    </div>
+	
+	<!--PHYSICS - ELECTRICITY AND MAGNETISM-->
+    <div data-role="page" id="p-EM">	
+	
+		<!-- PANEL MENU -->
+		<div data-role="panel" id="m-EM" data-position="left" data-display="reveal">
+			<!-- panel content goes here -->
+		<p style="font-size:15pt"><b> MENU </b></p>
+		<p><b>Physics</b></</p>
+			<input type="button" value="Newtonian Mechanics" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-NewtonianMechanics'">	 	
+			<input type="button" value="E & M" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-EM'">
+			<input type="button" value="Fluid Mech. & Thermo." style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-FluidThermo'">
+		<p><b>Chemistry</b></p>
+			<p>Coming Soon!</p>
+			<input type="button" value="Atomic Structure" style="font-size:10pt;background-color: #C7F464; opacity:0.65" onClick="location.href='#c-AtomicStructure'">
+		<p><b>Other</b></p>
+			<input type="button" value="Equations Supported" style="font-size:10pt;background-color: #FF6B6B; opacity:0.4" onClick="location.href='#eqSupported'">
+		</div>
+		
+		<!-- Header -->
+		<div data-role="header" style="font-family: 'Courier New', Courier, monospace;font-size:17pt;color: white;background-color: #556270">
+			<h1>E & M</h1>
+		</div>	
+		
+		<div data-role="content">   		
+			<p align="center"> Coming Soon! Swipe right to open menu.</p>
+		</div>
+		
+	</div>
+	
+	<!--PHYSICS - FLUID MECHANICS AND THERMODYNAMICS-->
+    <div data-role="page" id="p-FluidThermo">	
+		<!-- PANEL MENU -->
+			<div data-role="panel" id="m-FluidThermo" data-position="left" data-display="reveal">
+				<!-- panel content goes here -->
+			<p style="font-size:15pt"><b> MENU </b></p>
+			<p><b>Physics</b></</p>
+				<input type="button" value="Newtonian Mechanics" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-NewtonianMechanics'">	 	
+				<input type="button" value="E & M" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-EM'">
+				<input type="button" value="Fluid Mech. & Thermo." style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-FluidThermo'">
+			<p><b>Chemistry</b></p>
+				<p>Coming Soon!</p>
+				<input type="button" value="Atomic Structure" style="font-size:10pt;background-color: #C7F464; opacity:0.65" onClick="location.href='#c-AtomicStructure'">
+			<p><b>Other</b></p>
+			<input type="button" value="Equations Supported" style="font-size:10pt;background-color: #FF6B6B; opacity:0.4" onClick="location.href='#eqSupported'">
+			</div>
+		
+		<!-- Header -->
+		<div data-role="header" style="font-family: 'Courier New', Courier, monospace;font-size:17pt;color: white;background-color: #556270">
+			<h1>Fluids and Thermo.</h1>
+		</div>	
+		
+		<div data-role="content">   		
+			<p align="center"> Coming Soon! Swipe right to open menu.</p>
+		</div>
+		
+	</div>
+	
+	
+			
+<!-- Start of return pages -->
+	<div data-role="page" id="r-NewtonianMechanics">
+	
+		<!-- Header -->
+		<div data-role="header" style="font-family: 'Courier New', Courier, monospace;font-size:17pt;color: white;background-color: #556270">
+            <h1>Result</h1>
+        </div>
+		
+		<p>  </p> <!-- space -->
+		
+			<div id="input-NewtonianMechanics" align = "center">
+			<!-- selected to find and entered values -->
+			</div>
+		
+		<p>  </p> <!-- space -->
+		
+			<div id="equations-NewtonianMechanics" align = "center"> 
+			 <!-- equation used and answer -->
+			</div>
+		
+		<p>  </p> <!-- space -->
+		
+			<div id="answer-NewtonianMechanics" align = "center"> 
+			 <!-- equation used and answer -->
+			</div>
+			
+		<input type="button" value="Return to Calculator" style="font-size:10pt;background-color: #C7F464; opacity: 0.65;" onClick="location.href='#p-NewtonianMechanics';window.location.reload();"> 
+		 <!--<input type="button" value="Return to Calculator" style="font-size:10pt;background-color: #6600FF" onClick="returnToCalculator();">  -->
+		 
+	</div>
+	
+<!-- CHEMISTRY -->
+	<!-- CHEMISTRY - ATOMIC STRUCTURE -->
+    <div data-role="page" id="c-AtomicStructure">
+	
+		<!-- PANEL MENU -->
+		<div data-role="panel" id="m-AtomicStructure" data-position="left" data-display="reveal">
+			<!-- panel content goes here -->
+				<!-- panel content goes here -->
+			<p style="font-size:15pt"><b> MENU </b></p>
+			<p><b>Physics</b></</p>
+				<input type="button" value="Newtonian Mechanics" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-NewtonianMechanics'">	 	
+				<input type="button" value="E & M" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-EM'">
+				<input type="button" value="Fluid Mech. & Thermo." style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-FluidThermo'">
+			<p><b>Chemistry</b></p>
+				<p>Coming Soon!</p>
+				<input type="button" value="Atomic Structure" style="font-size:10pt;background-color: #99CC00; opacity:0.65" onClick="location.href='#c-AtomicStructure'">
+			<p><b>Other</b></p>
+				<input type="button" value="Equations Supported" style="font-size:10pt;background-color: #FF6B6B; opacity:0.4" onClick="location.href='#eqSupported'">
+		</div>
+		
+		<!-- Header -->
+		<div data-role="header" style="font-family: 'Courier New', Courier, monospace;font-size:17pt;color: white;background-color: #99CC00">
+			<h1>Atomic Structure</h1>
+		</div>
+			
+		<div data-role="content">				
+			
+			
+			<p align="center">Under Construction - Swipe right to open menu.</p>
+			<form method="POST">	
+			<!-- ASKED FOR -->
+				<label for="select-choice-a" class="select"><b>Asked for:</b></label>
+					<select name="select-choice-a" id="cfindThis" data-native-menu="false">						
+						<option value="E">Energy (J)</option>
+						<option value="v">Velocity (m/s)</option>
+						<option value="w">Wavelength (m)</option> 
+					</select>	
+			<!-- GIVEN -->		
+				<label for="select-choice-a" class="select"><b>Given:</b></label>
+				<p>Select values to add:</p>
+					<select name="select-choice-a" id="cgivenThis" data-native-menu="false" style="float:left;">
+						<option value="E">Energy (J)</option>
+						<option value="v">Velocity (m/s)</option>
+						<option value="w">Wavelength (m)</option> 
+					</select>
+					<input type="button" value="Add Value" style="background-color: #669966;opacity:0.65" onClick= "caddInput('cvalues');" >			
+					<div id="cvalues">
+						<!--Dynamic text boxes for given values go here -->			
+					</div>
+						
+				<input type="button" value="Submit" style="font-size:10pt;background-color: #CC99FF;opacity:0.65" onClick="conSubmit();">						
+				<input type="button" value="Reset" style="background-color: #7ED0D6;opacity:0.65"  onClick="window.location.reload()">
+			</form>
+		</div>
+	</div>	
+<!-- EQUATIONS SUPPORTED -->
+    <div data-role="page" id="eqSupported">
+	<!-- PANEL MENU -->
+		<div data-role="panel" id="m-EquationsSupported" data-position="left" data-display="reveal">
+			<!-- panel content goes here -->
+				<!-- panel content goes here -->
+			<p style="font-size:15pt"><b> MENU </b></p>
+			<p><b>Physics</b></</p>
+				<input type="button" value="Newtonian Mechanics" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-NewtonianMechanics'">	 	
+				<input type="button" value="E & M" style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-EM'">
+				<input type="button" value="Fluid Mech. & Thermo." style="font-size:10pt;background-color: #4ECDC4; opacity:0.65" onClick="location.href='#p-FluidThermo'">
+			<p><b>Chemistry</b></p>
+				<p>Coming Soon!</p>
+				<input type="button" value="Atomic Structure" style="font-size:10pt;background-color: #99CC00; opacity:0.65" onClick="location.href='#c-AtomicStructure'">
+			<p><b>Other</b></p>
+				<input type="button" value="Equations Supported" style="font-size:10pt;background-color: #FF6B6B; opacity:0.4" onClick="location.href='#eqSupported'">
+		</div>
+		
+		<!-- Header -->
+		<div data-role="header" style="font-family: 'Courier New', Courier, monospace;font-size:17pt;color: white;background-color: #556270">
+            <h1>Equations Supported</h1>
+        </div>
+		<div data-role="content" align = "center">
+			<img src="equationsSupported.jpg"></img>
+			<p>Swipe right to open menu.</p>
+		</div>
+	</div>
+</body>
+</html>
